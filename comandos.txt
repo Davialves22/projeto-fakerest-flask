@@ -1,0 +1,12 @@
+começar um projeto com flask
+pip install flask > instala o flask
+
+primeiro tem que importar o flask pra criar o app > app = Flask(__name__)#aplicativo flask
+
+pra rodar o projeto > if __name__ == '__main__':
+                                    app.run(debug=True)
+
+criar banco de dados : pip install flask-sqlalchemy
+                         #criar app criar_banco.py
+                            with app.app_context():
+                                database.create_all()
