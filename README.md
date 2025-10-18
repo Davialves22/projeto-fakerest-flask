@@ -32,17 +32,21 @@ Perfeito! Aqui está uma versão **moderna e enxuta** do README do **Fakerest**,
 ## Estrutura do Banco de Dados
 
 ```python
+# criando classes - tabelas
 class Usuario(database.Model):
     id = database.Column(database.Integer, primary_key=True)
     username = database.Column(database.String(150), nullable=False)
     email = database.Column(database.String(150), nullable=False, unique=True)
     senha = database.Column(database.String(150), nullable=False)
+    fotos = database.relationship("Foto", backref="usuario", lazy=True)  # classe relacionavel
+
 
 class Foto(database.Model):
     id = database.Column(database.Integer, primary_key=True)
-    usuario_id = database.Column(database.Integer, database.ForeignKey('usuario.id'), nullable=False)
-    caminho = database.Column(database.String(250), nullable=False)
-    data_upload = database.Column(database.DateTime, default=datetime.utcnow)
+    imagem = database.Column(database.String(150), default="default.png")
+    data_criacao = database.Column(database.DateTime, nullable=False, default=datetime.utcnow())
+    id_usuario = database.Column(database.Integer, database.ForeignKey("usuario.id"),
+                                 nullable=False)  # classe relacionavel de foto com usuario
 ```
 
 ---
