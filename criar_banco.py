@@ -1,4 +1,4 @@
-from fakerest import database, app
+from fakerest import database,app
 from fakerest.models import Usuario, Foto
 
 with app.app_context():

@@ -44,6 +44,134 @@
         "documentation": {}
     },
     {
+        "label": "FlaskForm",
+        "importPath": "flask_wtf",
+        "description": "flask_wtf",
+        "isExtraImport": true,
+        "detail": "flask_wtf",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "sqlalchemy.testing.pickleable",
+        "description": "sqlalchemy.testing.pickleable",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.testing.pickleable",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "sqlalchemy.testing.pickleable",
+        "description": "sqlalchemy.testing.pickleable",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.testing.pickleable",
+        "documentation": {}
+    },
+    {
+        "label": "StringField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "SubmitField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "DataRequired",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Email",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "EqualTo",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Length",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "ValidationError",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "length",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Usuario",
+        "importPath": "fakerest.models",
+        "description": "fakerest.models",
+        "isExtraImport": true,
+        "detail": "fakerest.models",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "fakerest.models",
+        "description": "fakerest.models",
+        "isExtraImport": true,
+        "detail": "fakerest.models",
+        "documentation": {}
+    },
+    {
+        "label": "Usuario",
+        "importPath": "fakerest.models",
+        "description": "fakerest.models",
+        "isExtraImport": true,
+        "detail": "fakerest.models",
+        "documentation": {}
+    },
+    {
+        "label": "Foto",
+        "importPath": "fakerest.models",
+        "description": "fakerest.models",
+        "isExtraImport": true,
+        "detail": "fakerest.models",
+        "documentation": {}
+    },
+    {
         "label": "database",
         "importPath": "fakerest",
         "description": "fakerest",
@@ -52,7 +180,31 @@
         "documentation": {}
     },
     {
+        "label": "login_manager",
+        "importPath": "fakerest",
+        "description": "fakerest",
+        "isExtraImport": true,
+        "detail": "fakerest",
+        "documentation": {}
+    },
+    {
         "label": "app",
+        "importPath": "fakerest",
+        "description": "fakerest",
+        "isExtraImport": true,
+        "detail": "fakerest",
+        "documentation": {}
+    },
+    {
+        "label": "database",
+        "importPath": "fakerest",
+        "description": "fakerest",
+        "isExtraImport": true,
+        "detail": "fakerest",
+        "documentation": {}
+    },
+    {
+        "label": "bcrypt",
         "importPath": "fakerest",
         "description": "fakerest",
         "isExtraImport": true,
@@ -92,6 +244,46 @@
         "documentation": {}
     },
     {
+        "label": "UserMixin",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "login_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "logout_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "current_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
         "label": "render_template",
         "importPath": "flask",
         "description": "flask",
@@ -108,19 +300,36 @@
         "documentation": {}
     },
     {
-        "label": "Usuario",
-        "importPath": "fakerest.models",
-        "description": "fakerest.models",
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
         "isExtraImport": true,
-        "detail": "fakerest.models",
+        "detail": "flask",
         "documentation": {}
     },
     {
-        "label": "Foto",
-        "importPath": "fakerest.models",
-        "description": "fakerest.models",
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
         "isExtraImport": true,
-        "detail": "fakerest.models",
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "fakerest.forms",
+        "description": "fakerest.forms",
+        "isExtraImport": true,
+        "detail": "fakerest.forms",
+        "documentation": {}
+    },
+    {
+        "label": "secrets",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "secrets",
+        "description": "secrets",
+        "detail": "secrets",
         "documentation": {}
     },
     {
@@ -205,11 +414,29 @@
         "documentation": {}
     },
     {
+        "label": "FormLogin",
+        "kind": 6,
+        "importPath": "fakerest.forms",
+        "description": "fakerest.forms",
+        "peekOfCode": "class FormLogin(FlaskForm):\n    email = StringField('Email', validators=[DataRequired(), Email()])\n    senha = PasswordField('Senha', validators=[DataRequired()])\n    botao_confirmacao = SubmitField('Fazer Login')\nclass FormCriarConta(FlaskForm):\n    email = StringField('Email', validators=[DataRequired(), Email()])\n    username = StringField('Username', validators=[DataRequired()])\n    senha = PasswordField('Senha', validators=[DataRequired(), length(6, 20)])\n    confirmacao_senha = PasswordField('Confirmar senha', validators=[DataRequired(), EqualTo('senha')])\n    botao_confirmacao = SubmitField('Criar conta')",
+        "detail": "fakerest.forms",
+        "documentation": {}
+    },
+    {
+        "label": "FormCriarConta",
+        "kind": 6,
+        "importPath": "fakerest.forms",
+        "description": "fakerest.forms",
+        "peekOfCode": "class FormCriarConta(FlaskForm):\n    email = StringField('Email', validators=[DataRequired(), Email()])\n    username = StringField('Username', validators=[DataRequired()])\n    senha = PasswordField('Senha', validators=[DataRequired(), length(6, 20)])\n    confirmacao_senha = PasswordField('Confirmar senha', validators=[DataRequired(), EqualTo('senha')])\n    botao_confirmacao = SubmitField('Criar conta')\n    #função para filtrar email\n    def validate_email(self, email):\n        usuario = Usuario.query.filter_by(email=email.data).first()\n        if usuario:",
+        "detail": "fakerest.forms",
+        "documentation": {}
+    },
+    {
         "label": "Usuario",
         "kind": 6,
         "importPath": "fakerest.models",
         "description": "fakerest.models",
-        "peekOfCode": "class Usuario(database.Model):\n    id = database.Column(database.Integer, primary_key=True)\n    username = database.Column(database.String(150), nullable=False)\n    email = database.Column(database.String(150), nullable=False, unique=True)\n    senha = database.Column(database.String(150), nullable=False)\n    fotos = database.relationship(\"Foto\", backref=\"usuario\", lazy=True)  # classe relacionavel\nclass Foto(database.Model):\n    id = database.Column(database.Integer, primary_key=True)\n    imagem = database.Column(database.String(150), default=\"default.png\")\n    data_criacao = database.Column(database.DateTime, nullable=False, default=datetime.utcnow())",
+        "peekOfCode": "class Usuario(database.Model, UserMixin):\n    id = database.Column(database.Integer, primary_key=True)\n    username = database.Column(database.String(150), nullable=False)\n    email = database.Column(database.String(150), nullable=False, unique=True)\n    senha = database.Column(database.String(150), nullable=False)\n    fotos = database.relationship(\"Foto\", backref=\"usuario\", lazy=True)  # classe relacionavel\nclass Foto(database.Model):\n    id = database.Column(database.Integer, primary_key=True)\n    imagem = database.Column(database.String(150), default=\"default.png\")\n    data_criacao = database.Column(database.DateTime, nullable=False, default=datetime.utcnow())",
         "detail": "fakerest.models",
         "documentation": {}
     },
@@ -223,20 +450,47 @@
         "documentation": {}
     },
     {
+        "label": "load_usuario",
+        "kind": 2,
+        "importPath": "fakerest.models",
+        "description": "fakerest.models",
+        "peekOfCode": "def load_usuario(id_usuario):\n    return Usuario.query.get(int(id_usuario))\n# criando classes - tabelas\nclass Usuario(database.Model, UserMixin):\n    id = database.Column(database.Integer, primary_key=True)\n    username = database.Column(database.String(150), nullable=False)\n    email = database.Column(database.String(150), nullable=False, unique=True)\n    senha = database.Column(database.String(150), nullable=False)\n    fotos = database.relationship(\"Foto\", backref=\"usuario\", lazy=True)  # classe relacionavel\nclass Foto(database.Model):",
+        "detail": "fakerest.models",
+        "documentation": {}
+    },
+    {
         "label": "homepage",
         "kind": 2,
         "importPath": "fakerest.routes",
         "description": "fakerest.routes",
-        "peekOfCode": "def homepage():\n    return render_template('homepage.html')  # -> vai retornar a pagina html dentro do template\n@app.route('/perfil/<usuario>')\ndef perfl(usuario): #vai exibir a página com os dados do usuario\n    return render_template('perfil.html', usuario=usuario)",
+        "peekOfCode": "def homepage():\n    formlogin = FormLogin()\n    if formlogin.validate_on_submit():\n        usuario = Usuario.query.filter_by(email=formlogin.email.data).first()\n        if usuario and bcrypt.check_password_hash(usuario.senha, formlogin.senha.data):\n            login_user(usuario)\n            return redirect(url_for('perfil', usuario=usuario.username))\n    return render_template('homepage.html', form=formlogin)  # -> vai retornar a pagina html dentro do template\n@app.route(\"/criarconta\", methods=[\"GET\", \"POST\"])\ndef criarconta():",
         "detail": "fakerest.routes",
         "documentation": {}
     },
     {
-        "label": "perfl",
+        "label": "criarconta",
         "kind": 2,
         "importPath": "fakerest.routes",
         "description": "fakerest.routes",
-        "peekOfCode": "def perfl(usuario): #vai exibir a página com os dados do usuario\n    return render_template('perfil.html', usuario=usuario)",
+        "peekOfCode": "def criarconta():\n    form_criarconta = FormCriarConta()\n    if form_criarconta.validate_on_submit():\n        # 🔎 Verificar se o e-mail já existe\n        usuario_existente = Usuario.query.filter_by(email=form_criarconta.email.data).first()\n        if usuario_existente:\n            flash('⚠️ Este e-mail já está cadastrado. Tente outro.', 'warning')\n            return redirect(url_for('criarconta'))\n        # 🔐 Criptografar senha e criar novo usuário\n        senha_hash = bcrypt.generate_password_hash(form_criarconta.senha.data).decode('utf-8')",
+        "detail": "fakerest.routes",
+        "documentation": {}
+    },
+    {
+        "label": "perfil",
+        "kind": 2,
+        "importPath": "fakerest.routes",
+        "description": "fakerest.routes",
+        "peekOfCode": "def perfil(usuario):  # vai exibir a página com os dados do usuario\n    return render_template('perfil.html', usuario=usuario)\n@app.route(\"/logout\")\n@login_required\ndef logout():\n    logout_user()\n    return redirect(url_for('homepage'))",
+        "detail": "fakerest.routes",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "kind": 2,
+        "importPath": "fakerest.routes",
+        "description": "fakerest.routes",
+        "peekOfCode": "def logout():\n    logout_user()\n    return redirect(url_for('homepage'))",
         "detail": "fakerest.routes",
         "documentation": {}
     }

@@ -10,3 +10,5 @@ criar banco de dados : pip install flask-sqlalchemy
                          #criar app criar_banco.py
                             with app.app_context():
                                 database.create_all()
+
+inserir login e segurança  pip install flask-login flask-bcrypt
