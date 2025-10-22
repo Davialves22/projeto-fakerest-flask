@@ -7,6 +7,7 @@ from flask_login import login_manager, LoginManager
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///comunidade.db'
 app.config["SECRET_KEY"] = "e85c8ede78483f3659f96991f107c440"
+app.config['UPLOAD_FOLDER'] = "static/fotos_posts"
 
 database = SQLAlchemy(app)
 bcrypt = Bcrypt(app)

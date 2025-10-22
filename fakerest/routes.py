@@ -14,7 +14,7 @@ def homepage():
         usuario = Usuario.query.filter_by(email=formlogin.email.data).first()
         if usuario and bcrypt.check_password_hash(usuario.senha, formlogin.senha.data):
             login_user(usuario)
-            return redirect(url_for('perfil', usuario=usuario.username))
+            return redirect(url_for('perfil', id_usuario=usuario.id))
     return render_template('homepage.html', form=formlogin)  # -> vai retornar a pagina html dentro do template
 
 
@@ -45,15 +45,19 @@ def criarconta():
         login_user(novo_usuario, remember=True)
 
         flash('✅ Conta criada com sucesso! Bem-vindo ao Fakerest.', 'success')
-        return redirect(url_for('perfil', usuario=novo_usuario.username))
+        return redirect(url_for('perfil', id_usuario=novo_usuario.id))
 
     return render_template('criarconta.html', form=form_criarconta)
 
 
-@app.route('/perfil/<usuario>')
+@app.route('/perfil/<id_usuario>')
 @login_required
-def perfil(usuario):  # vai exibir a página com os dados do usuario
-    return render_template('perfil.html', usuario=usuario)
+def perfil(id_usuario):  # vai exibir a página com os dados do usuario
+    if id_usuario == int(current_user.id):  # o usuario ta vendo o proprio perfil senao ta vendo o de outro usuario
+        return render_template('perfil.html', usuario=current_user)
+    else:
+        usuario = Usuario.query.get(int(id_usuario))
+        return render_template('perfil.html', usuario=usuario)
 
 
 @app.route("/logout")

@@ -463,7 +463,7 @@
         "kind": 2,
         "importPath": "fakerest.routes",
         "description": "fakerest.routes",
-        "peekOfCode": "def homepage():\n    formlogin = FormLogin()\n    if formlogin.validate_on_submit():\n        usuario = Usuario.query.filter_by(email=formlogin.email.data).first()\n        if usuario and bcrypt.check_password_hash(usuario.senha, formlogin.senha.data):\n            login_user(usuario)\n            return redirect(url_for('perfil', usuario=usuario.username))\n    return render_template('homepage.html', form=formlogin)  # -> vai retornar a pagina html dentro do template\n@app.route(\"/criarconta\", methods=[\"GET\", \"POST\"])\ndef criarconta():",
+        "peekOfCode": "def homepage():\n    formlogin = FormLogin()\n    if formlogin.validate_on_submit():\n        usuario = Usuario.query.filter_by(email=formlogin.email.data).first()\n        if usuario and bcrypt.check_password_hash(usuario.senha, formlogin.senha.data):\n            login_user(usuario)\n            return redirect(url_for('perfil', id_usuario=usuario.id))\n    return render_template('homepage.html', form=formlogin)  # -> vai retornar a pagina html dentro do template\n@app.route(\"/criarconta\", methods=[\"GET\", \"POST\"])\ndef criarconta():",
         "detail": "fakerest.routes",
         "documentation": {}
     },
@@ -481,7 +481,7 @@
         "kind": 2,
         "importPath": "fakerest.routes",
         "description": "fakerest.routes",
-        "peekOfCode": "def perfil(usuario):  # vai exibir a página com os dados do usuario\n    return render_template('perfil.html', usuario=usuario)\n@app.route(\"/logout\")\n@login_required\ndef logout():\n    logout_user()\n    return redirect(url_for('homepage'))",
+        "peekOfCode": "def perfil(id_usuario):  # vai exibir a página com os dados do usuario\n    if id_usuario == int(current_user.id):  # o usuario ta vendo o proprio perfil senao ta vendo o de outro usuario\n        return render_template('perfil.html', usuario=current_user)\n    else:\n        usuario = Usuario.query.get(int(id_usuario))\n        return render_template('perfil.html', usuario=usuario)\n@app.route(\"/logout\")\n@login_required\ndef logout():\n    logout_user()",
         "detail": "fakerest.routes",
         "documentation": {}
     },
