@@ -13,7 +13,7 @@ Perfeito! Aqui está uma versão **moderna e enxuta** do README do **Fakerest**,
 ## Funcionalidades
 
 * Cadastro e autenticação de usuários.
-* <img width="1354" height="607" alt="image" src="https://github.com/user-attachments/assets/9057b0e6-943e-4665-86df-352832b0d37f" />
+<img width="1354" height="607" alt="image" src="https://github.com/user-attachments/assets/9057b0e6-943e-4665-86df-352832b0d37f" />
 <img width="1361" height="597" alt="image" src="https://github.com/user-attachments/assets/6189f01f-815f-4de3-8a27-b78ce6ac617b" />
 
 
