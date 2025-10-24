@@ -1,34 +1,23 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   color: #333;
+  background-color: #fff;
 }
 
+/* ===== NAVBAR ===== */
 nav {
   padding: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-h1 {
-  color: #c00;
-  font-size: 20px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  display: inline;
-}
-
-img {
-  width: 100%;
-}
-
-.overflow-hidden {
-  overflow: hidden;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .logo-pinterest {
@@ -38,15 +27,25 @@ img {
   column-gap: 4px;
 }
 
+h1 {
+  color: #c00;
+  font-size: 22px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: inline;
+}
+
 .link-nav {
   font-size: 16px;
   font-weight: 600;
   color: #333;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .link-nav:hover {
   text-decoration: underline;
+  color: #e60023;
 }
 
 .restante-nav {
@@ -56,12 +55,14 @@ img {
   width: fit-content;
 }
 
+/* ===== CONTAINER LOGIN ===== */
 .container-login {
-  padding-bottom: 100px;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #fff, #ffe6e6);
 }
 
 .bg-imagem-pinterest {
@@ -70,12 +71,7 @@ img {
   top: 50vh;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-}
-
+/* ===== POPUP ===== */
 .container-popup {
   position: fixed;
   top: 0;
@@ -84,41 +80,36 @@ img {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .popup {
-  /* display: none !important; */
-  width: 400px;
-  margin: auto;
+  width: 90%;
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 32px;
+  padding: 35px;
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 20px;
-  padding: 35px;
-  border-radius: 32px;
-  background-color: #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.6s ease-in-out;
 }
 
-.div-input {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 5px;
-}
-
+/* ===== FORMULÁRIO ===== */
+.div-input,
 .div-botao {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 5px;
-  margin-top: 10px;
+  row-gap: 10px;
 }
 
 .label {
   margin-right: auto;
-  margin-left: 15px;
   font-size: 15px;
 }
 
@@ -128,8 +119,14 @@ img {
   padding: 15px;
   border: 2px solid #cdcdcd;
   border-radius: 20px;
-  box-sizing: border-box;
   font-family: Montserrat;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #e60023;
+  box-shadow: 0 0 8px rgba(230, 0, 35, 0.3);
 }
 
 .botao-login {
@@ -142,10 +139,12 @@ img {
   cursor: pointer;
   background-color: #e60023;
   color: #fff;
+  transition: 0.3s;
 }
 
 .botao-login:hover {
   background-color: #d50c22;
+  transform: scale(1.03);
 }
 
 .link-criarconta {
@@ -154,15 +153,17 @@ img {
 }
 
 .link-criarconta:hover {
-  color: #333;
+  color: #e60023;
   text-decoration: underline;
 }
 
+/* ===== PERFIL ===== */
 .botao-perfil a {
   background-color: #333;
   color: white;
   padding: 10px 20px;
   border-radius: 25px;
+  transition: 0.3s;
 }
 
 .botao-perfil a:hover {
@@ -170,38 +171,44 @@ img {
   text-decoration: none;
 }
 
+/* ===== FEED / CONTEÚDO ===== */
 .conteudo {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
   width: 100%;
-  max-width: 100vw;
-  column-gap: 10px;
-  row-gap: 30px;
-  padding: 15px;
-  box-sizing: border-box;
+  padding: 20px;
+}
+
+.bloco-imagem {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.bloco-imagem:hover {
+  transform: scale(1.03);
 }
 
 .bloco-imagem img {
   border-radius: 20px;
+  width: 100%;
   height: 40vh;
   object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
+.bloco-imagem img:hover {
+  transform: scale(1.1);
+}
+
+/* ===== UPLOAD ===== */
 .bloco-add-img {
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 10px;
-}
-
-.botao-arquivo {
-  padding: 5px 10px;
-  border-radius: 15px;
-  border: 0;
-  background-color: #333;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
 }
 
 .bloco-arquivo {
@@ -210,7 +217,24 @@ img {
   border-radius: 55px;
   display: flex;
   align-items: center;
-  column-gap: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.botao-arquivo {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 0;
+  background-color: #333;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.botao-arquivo:hover {
+  background-color: #555;
+  transform: scale(1.05);
 }
 
 .input-arquivo {
@@ -225,11 +249,87 @@ img {
   display: inline-block;
 }
 
-.bloco-add-img .botao-login {
-  width: auto;
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.bloco-input-botao {
-  display: flex;
-  column-gap: 20px;
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  h1 {
+    font-size: 18px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .conteudo {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .popup {
+    padding: 25px;
+  }
+}
+
+/* Celulares médios */
+@media (max-width: 768px) {
+  nav {
+    align-items: center;
+  }
+
+  .popup {
+    width: 90%;
+  }
+
+  .container-login {
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .conteudo {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .botao-login {
+    font-size: 14px;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .restante-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .popup {
+    width: 95%;
+  }
+
+  .conteudo {
+    grid-template-columns: 1fr;
+  }
+
+  .bloco-imagem img {
+    height: auto;
+  }
 }
