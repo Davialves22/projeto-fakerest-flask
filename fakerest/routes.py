@@ -4,6 +4,8 @@ from flask_login import login_required, login_user, logout_user, current_user
 from fakerest import app, database, bcrypt
 from fakerest.forms import *
 from fakerest.models import *
+import os
+from werkzeug.utils import secure_filename
 
 
 # colocando no ar com rotas
@@ -50,14 +52,28 @@ def criarconta():
     return render_template('criarconta.html', form=form_criarconta)
 
 
-@app.route('/perfil/<id_usuario>')
+@app.route('/perfil/<id_usuario>', methods=["GET", "POST"])
 @login_required
 def perfil(id_usuario):  # vai exibir a página com os dados do usuario
-    if id_usuario == int(current_user.id):  # o usuario ta vendo o proprio perfil senao ta vendo o de outro usuario
-        return render_template('perfil.html', usuario=current_user)
+    if int(id_usuario) == int(current_user.id):  # o usuario ta vendo o proprio perfil senao ta vendo o de outro usuario
+        form_foto = FormFoto()
+        if form_foto.validate_on_submit():
+            arquivo = form_foto.foto.data
+            nome_seguro = secure_filename(arquivo.filename)
+            # salvar o arquivo na pasta
+            caminho = os.path.join(os.path.abspath(os.path.dirname(__file__)),  # o caminho onde esta o codigo escrito
+                                   app.config['UPLOAD_FOLDER'], nome_seguro)
+            arquivo.save(caminho)
+
+            # registrar o arquivo no banco
+            foto = Foto(imagem=nome_seguro, id_usuario=current_user.id)
+            database.session.add(foto)  # adiciona a foto
+            database.session.commit()  # registra no banco
+
+        return render_template('perfil.html', usuario=current_user, form=form_foto)
     else:
         usuario = Usuario.query.get(int(id_usuario))
-        return render_template('perfil.html', usuario=usuario)
+        return render_template('perfil.html', usuario=usuario, form=None)
 
 
 @app.route("/logout")
@@ -65,3 +81,10 @@ def perfil(id_usuario):  # vai exibir a página com os dados do usuario
 def logout():
     logout_user()
     return redirect(url_for('homepage'))
+
+
+@app.route("/feed")
+@login_required
+def feed():
+    fotos = Foto.query.order_by(Foto.data_criacao.desc()).all()
+    return render_template('feed.html', fotos = fotos)

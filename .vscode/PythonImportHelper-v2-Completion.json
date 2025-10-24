@@ -92,6 +92,30 @@
         "documentation": {}
     },
     {
+        "label": "FileField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "BooleanField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "TextAreaField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
         "label": "DataRequired",
         "importPath": "wtforms.validators",
         "description": "wtforms.validators",
@@ -324,6 +348,14 @@
         "documentation": {}
     },
     {
+        "label": "secure_filename",
+        "importPath": "werkzeug.utils",
+        "description": "werkzeug.utils",
+        "isExtraImport": true,
+        "detail": "werkzeug.utils",
+        "documentation": {}
+    },
+    {
         "label": "secrets",
         "kind": 6,
         "isExtraImport": true,
@@ -432,6 +464,15 @@
         "documentation": {}
     },
     {
+        "label": "FormFoto",
+        "kind": 6,
+        "importPath": "fakerest.forms",
+        "description": "fakerest.forms",
+        "peekOfCode": "class FormFoto(FlaskForm):\n    foto = FileField('Foto', validators=[DataRequired()])\n    botao_confirmacao = SubmitField('Enviar foto')",
+        "detail": "fakerest.forms",
+        "documentation": {}
+    },
+    {
         "label": "Usuario",
         "kind": 6,
         "importPath": "fakerest.models",
@@ -481,7 +522,7 @@
         "kind": 2,
         "importPath": "fakerest.routes",
         "description": "fakerest.routes",
-        "peekOfCode": "def perfil(id_usuario):  # vai exibir a página com os dados do usuario\n    if id_usuario == int(current_user.id):  # o usuario ta vendo o proprio perfil senao ta vendo o de outro usuario\n        return render_template('perfil.html', usuario=current_user)\n    else:\n        usuario = Usuario.query.get(int(id_usuario))\n        return render_template('perfil.html', usuario=usuario)\n@app.route(\"/logout\")\n@login_required\ndef logout():\n    logout_user()",
+        "peekOfCode": "def perfil(id_usuario):  # vai exibir a página com os dados do usuario\n    if id_usuario == int(current_user.id):  # o usuario ta vendo o proprio perfil senao ta vendo o de outro usuario\n        form_foto = FormFoto()\n        if form_foto.validate_on_submit():\n            arquivo = form_foto.foto.data\n            nome_seguro = secure_filename(arquivo.filename)\n            # salvar o arquivo na pasta\n            caminho = caminho_projeto / app.config[app.config['UPLOAD_FOLDER'] / nome_seguro\n            arquivo.save(caminho)\n            # registrar o arquivo no banco",
         "detail": "fakerest.routes",
         "documentation": {}
     },

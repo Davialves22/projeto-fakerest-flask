@@ -1,7 +1,7 @@
 # criar os formularios
 from flask_wtf import FlaskForm
 from sqlalchemy.testing.pickleable import User
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, FileField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError, length
 
 from fakerest.models import Usuario
@@ -25,3 +25,7 @@ class FormCriarConta(FlaskForm):
         usuario = Usuario.query.filter_by(email=email.data).first()
         if usuario:
             return ValidationError("Email já cadastrado,faça login para continuar!")
+
+class FormFoto(FlaskForm):
+    foto = FileField('Foto', validators=[DataRequired()])
+    botao_confirmacao = SubmitField('Enviar foto')

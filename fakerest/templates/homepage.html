@@ -8,6 +8,7 @@
         FakeRest
         {% endblock %}
     </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 {% block body %}
@@ -29,7 +30,7 @@
 
 </form>
 {% endblock  %}
-
+<a href="{{ url_for('criarconta') }}"> Ainda não tem conta? Clique para criar</a>
 
 </body>
 {% endblock %}
