@@ -2,13 +2,31 @@
 
 {% block body %}
 {% include "navbar.html" %}
-<h1>Feed Principal</h1>
 
+<body>
+<div class="container">
 
-{% for foto in fotos %}
-<a href="{{ url_for('perfil', id_usuario=foto.id_usuario) }}">
-    <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}">
-</a>
-{% endfor %}
+    <div class="conteudo">
+        {% for foto in fotos.items %}
+        <a href="{{ url_for('perfil', id_usuario=foto.id_usuario) }}" class="bloco-imagem">
+            <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" alt="Pinterest 1"/>
+        </a>
+        {% endfor %}
+    </div>
+
+    <div class="paginacao">
+        {% if fotos.has_prev %}
+        <a href="{{ url_for('feed', page=fotos.prev_num) }}">« Anterior</a>
+        {% endif %}
+
+        <span>Página {{ fotos.page }} de {{ fotos.pages }}</span>
+
+        {% if fotos.has_next %}
+        <a href="{{ url_for('feed', page=fotos.next_num) }}">Próxima »</a>
+        {% endif %}
+    </div>
+
+</div>
+</body>
 
 {% endblock %}

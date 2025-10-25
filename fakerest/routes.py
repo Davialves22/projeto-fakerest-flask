@@ -1,5 +1,5 @@
 # criar as rotas
-from flask import render_template, url_for, redirect, flash
+from flask import render_template, url_for, redirect, flash, request
 from flask_login import login_required, login_user, logout_user, current_user
 from fakerest import app, database, bcrypt
 from fakerest.forms import *
@@ -86,5 +86,11 @@ def logout():
 @app.route("/feed")
 @login_required
 def feed():
-    fotos = Foto.query.order_by(Foto.data_criacao.desc()).all()
-    return render_template('feed.html', fotos = fotos)
+    # Pega a página da query string, padrão é 1
+    page = request.args.get('page', 1, type=int)
+    per_page = 10  # quantidade de fotos por página
+
+    # Retorna um objeto Pagination
+    fotos_pag = Foto.query.order_by(Foto.data_criacao.desc()).paginate(page=page, per_page=per_page)
+
+    return render_template('feed.html', fotos=fotos_pag)
