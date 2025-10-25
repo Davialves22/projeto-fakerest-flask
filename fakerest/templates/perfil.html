@@ -32,24 +32,23 @@
     </div>
 
     {% endif %}
-</div>
 
 
-<div class="conteudo">
-    {% for foto in usuario.fotos %}
-    <div class="bloco-imagem">
-        <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" alt="Pinterest"/>
+    <div class="conteudo">
+        {% for foto in usuario.fotos %}
+        <div class="bloco-imagem">
+            <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" alt="Pinterest"/>
+        </div>
+        {% endfor %}
+
+        <!-- Modal para visualização da foto -->
+        <div id="modal-foto" class="modal">
+            <span class="fechar">&times;</span>
+            <img class="modal-conteudo" id="img-modal">
+        </div>
+
     </div>
-    {% endfor %}
-
-    <!-- Modal para visualização da foto -->
-    <div id="modal-foto" class="modal">
-        <span class="fechar">&times;</span>
-        <img class="modal-conteudo" id="img-modal">
-    </div>
-
 </div>
-
 
 <script>
     let input = document.getElementById("foto");

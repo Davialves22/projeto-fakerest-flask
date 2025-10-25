@@ -12,6 +12,12 @@ class FormLogin(FlaskForm):
     senha = PasswordField('Senha', validators=[DataRequired()])
     botao_confirmacao = SubmitField('Fazer Login')
 
+    #função para filtrar email
+    def validate_email(self, email):
+        usuario = Usuario.query.filter_by(email=email.data).first()
+        if not usuario:
+            raise ValidationError("Email não encontrado!, crie uma conta")
+
 
 class FormCriarConta(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
@@ -24,7 +30,7 @@ class FormCriarConta(FlaskForm):
     def validate_email(self, email):
         usuario = Usuario.query.filter_by(email=email.data).first()
         if usuario:
-            return ValidationError("Email já cadastrado,faça login para continuar!")
+            raise ValidationError("Email já cadastrado,faça login para continuar!")
 
 class FormFoto(FlaskForm):
     foto = FileField('Foto', validators=[DataRequired()])
