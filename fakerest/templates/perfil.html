@@ -45,6 +45,12 @@
         <div id="modal-foto" class="modal">
             <span class="fechar">&times;</span>
             <img class="modal-conteudo" id="img-modal">
+
+            <!-- Botão de download -->
+            <div id="download-container">
+                <a id="botao-download" href="#" download class="botao-download">Baixar imagem</a>
+            </div>
+
         </div>
 
     </div>
@@ -66,11 +72,14 @@
     const modal = document.getElementById('modal-foto');
     const modalImg = document.getElementById('img-modal');
     const spanFechar = document.getElementsByClassName('fechar')[0];
+    const botaoDownload = document.getElementById('botao-download');
+
 
     blocosImagem.forEach(img => {
         img.addEventListener('click', () => {
             modal.style.display = "block";
             modalImg.src = img.src; // carrega a mesma imagem
+            botaoDownload.href = img.src; // define o link de download
         });
     });
 
