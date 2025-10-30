@@ -1,3 +1,4 @@
+/* =================== REGRAS GERAIS =================== */
 * {
   margin: 0;
   padding: 0;
@@ -5,12 +6,12 @@
 }
 
 body {
-  font-family: Montserrat, sans-serif;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
   color: #333;
-  background-color: #fff;
+  background-color: #fafafa;
 }
 
-/* ===== NAVBAR ===== */
+/* =================== NAVBAR =================== */
 nav {
   padding: 16px;
   display: flex;
@@ -55,7 +56,7 @@ h1 {
   width: fit-content;
 }
 
-/* ===== CONTAINER LOGIN ===== */
+/* =================== CONTAINER LOGIN =================== */
 .container-login {
   min-height: 100vh;
   display: flex;
@@ -71,7 +72,7 @@ h1 {
   top: 50vh;
 }
 
-/* ===== POPUP ===== */
+/* =================== POPUP =================== */
 .container-popup {
   position: fixed;
   top: 0;
@@ -98,7 +99,7 @@ h1 {
   animation: fadeIn 0.6s ease-in-out;
 }
 
-/* ===== FORMULÁRIO ===== */
+/* =================== FORMULÁRIO =================== */
 .div-input,
 .div-botao {
   width: 100%;
@@ -157,9 +158,8 @@ h1 {
   text-decoration: underline;
 }
 
-/* ===== PERFIL ===== */
+/* =================== PERFIL =================== */
 .botao-perfil a {
-  background-color: #333;
   color: white;
   padding: 10px 20px;
   border-radius: 25px;
@@ -167,15 +167,28 @@ h1 {
 }
 
 .botao-perfil a:hover {
-  background-color: #777;
   text-decoration: none;
 }
 
-/* ===== FEED / CONTEÚDO ===== */
+/* =================== FEED / CONTEÚDO =================== */
+.container {
+  max-width: 1200px;
+  margin: 90px auto;
+  padding: 0 20px;
+}
+
+.titulo-feed {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+  color: #d63031;
+}
+
 .conteudo {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  justify-content: center;
   width: 100%;
   padding: 20px;
 }
@@ -184,26 +197,27 @@ h1 {
   position: relative;
   overflow: hidden;
   border-radius: 20px;
+  cursor: pointer;
   transition: transform 0.3s ease;
+}
+
+.bloco-imagem img {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.4s ease;
 }
 
 .bloco-imagem:hover {
   transform: scale(1.03);
 }
 
-.bloco-imagem img {
-  border-radius: 20px;
-  width: 100%;
-  height: 40vh;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
 .bloco-imagem img:hover {
   transform: scale(1.1);
 }
 
-/* ===== UPLOAD ===== */
+/* =================== UPLOAD =================== */
 .bloco-add-img {
   display: flex;
   flex-direction: column;
@@ -249,8 +263,7 @@ h1 {
   display: inline-block;
 }
 
-
-/* ===== PAGINAÇÃO ESTILO PINTEREST ===== */
+/* =================== PAGINAÇÃO =================== */
 .paginacao {
   display: flex;
   justify-content: center;
@@ -258,6 +271,7 @@ h1 {
   gap: 8px;
   padding: 30px 0;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .paginacao a,
@@ -293,109 +307,83 @@ h1 {
   font-weight: bold;
 }
 
-/* RESPONSIVIDADE PAGINAÇÃO */
-@media (max-width: 768px) {
-  .paginacao a,
-  .paginacao span {
-    min-width: 35px;
-    height: 35px;
-    line-height: 35px;
-  }
-}
-
-@media (max-width: 480px) {
-  .paginacao {
-    gap: 5px;
-  }
-
-  .paginacao a,
-  .paginacao span {
-    min-width: 30px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 14px;
-  }
-}
-
-/* ===== MODAL DE FOTO ===== */
+/* =================== MODAL DE FOTO =================== */
 .modal {
-  display: none; /* escondido por padrão */
+  display: none;
   position: fixed;
-  z-index: 1000;
-  padding-top: 60px;
+  z-index: 2000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.8);
-  text-align: center;
-
-
+  background-color: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-.modal-conteudo {
-  margin: auto;
-  display: block;
-  max-width: 90%;
-  max-height: 80vh;
+.modal-content {
+  background-color: #fff;
   border-radius: 15px;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
   animation: zoomIn 0.3s ease;
+}
+
+.modal-imagem {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-info h3 {
+  margin: 10px 0;
+  color: #333;
+}
+
+.botao-perfil {
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: #d63031;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.botao-perfil:hover {
+  background-color: #b71c1c;
 }
 
 .fechar {
   position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
+  top: 10px;
+  right: 18px;
+  font-size: 28px;
+  color: #555;
   cursor: pointer;
-  transition: color 0.3s ease;
 }
 
 .fechar:hover {
   color: #e60023;
 }
 
-#download-container {
-  margin-top: 20px;
-}
-
-.botao-download {
-  display: inline-block;
-  background-color: #ff0000;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.botao-download:hover {
-  background-color: #cc0000;
-}
-
+/* =================== ANIMAÇÕES =================== */
 @keyframes zoomIn {
-  from { transform: scale(0.7); opacity: 0; }
+  from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
 
-
-/* ===== ANIMAÇÕES ===== */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* =================== RESPONSIVIDADE =================== */
 
 /* Tablets */
 @media (max-width: 992px) {
@@ -420,6 +408,10 @@ h1 {
 
 /* Celulares médios */
 @media (max-width: 768px) {
+  .titulo-feed {
+    font-size: 1.5rem;
+  }
+
   nav {
     align-items: center;
   }
@@ -439,6 +431,13 @@ h1 {
 
   .botao-login {
     font-size: 14px;
+  }
+
+  .paginacao a,
+  .paginacao span {
+    min-width: 35px;
+    height: 35px;
+    line-height: 35px;
   }
 }
 
@@ -465,5 +464,17 @@ h1 {
 
   .bloco-imagem img {
     height: auto;
+  }
+
+  .paginacao {
+    gap: 5px;
+  }
+
+  .paginacao a,
+  .paginacao span {
+    min-width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
   }
 }

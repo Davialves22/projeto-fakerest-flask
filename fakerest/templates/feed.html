@@ -6,27 +6,72 @@
 <body>
 <div class="container">
 
+    <h2 class="titulo-feed">📸 Feed de Fotos</h2>
+
+    <!-- Galeria de fotos -->
     <div class="conteudo">
         {% for foto in fotos.items %}
-        <a href="{{ url_for('perfil', id_usuario=foto.id_usuario) }}" class="bloco-imagem">
-            <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" alt="Pinterest 1"/>
-        </a>
+        <div class="bloco-imagem"
+             data-img="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}"
+             data-usuario="{{ foto.usuario.username }}"
+             data-link="{{ url_for('perfil', id_usuario=foto.id_usuario) }}">
+            <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" alt="Foto de {{ foto.usuario.username }}">
+        </div>
         {% endfor %}
     </div>
 
+    <!-- Paginação -->
     <div class="paginacao">
         {% if fotos.has_prev %}
-        <a href="{{ url_for('feed', page=fotos.prev_num) }}">« Anterior</a>
+        <a href="{{ url_for('feed', page=fotos.prev_num) }}" class="pagina-btn">« Anterior</a>
         {% endif %}
 
-        <span>Página {{ fotos.page }} de {{ fotos.pages }}</span>
+        <span class="pagina-info">Página {{ fotos.page }} de {{ fotos.pages }}</span>
 
         {% if fotos.has_next %}
-        <a href="{{ url_for('feed', page=fotos.next_num) }}">Próxima »</a>
+        <a href="{{ url_for('feed', page=fotos.next_num) }}" class="pagina-btn">Próxima »</a>
         {% endif %}
     </div>
 
-</div>
-</body>
+    <!-- Modal -->
+    <div id="modal-foto" class="modal">
+        <div class="modal-content">
+            <span class="fechar">&times;</span>
+            <img id="img-modal" class="modal-imagem">
+            <div class="modal-info">
+                <h3 id="usuario-modal"></h3>
+                <a id="perfil-link" href="#" class="botao-perfil">Ver Perfil</a>
+            </div>
+        </div>
+    </div>
 
+</div>
+
+<!-- JavaScript -->
+<script>
+const imagens = document.querySelectorAll('.bloco-imagem');
+const modal = document.getElementById('modal-foto');
+const modalImg = document.getElementById('img-modal');
+const usuarioModal = document.getElementById('usuario-modal');
+const perfilLink = document.getElementById('perfil-link');
+const fechar = document.querySelector('.fechar');
+
+imagens.forEach(img => {
+    img.addEventListener('click', () => {
+        const src = img.getAttribute('data-img');
+        const usuario = img.getAttribute('data-usuario');
+        const link = img.getAttribute('data-link');
+
+        modal.style.display = 'flex';
+        modalImg.src = src;
+        usuarioModal.textContent = usuario;
+        perfilLink.href = link;
+    });
+});
+
+fechar.onclick = () => modal.style.display = 'none';
+modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+</script>
+
+</body>
 {% endblock %}

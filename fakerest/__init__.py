@@ -3,6 +3,10 @@ from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import login_manager, LoginManager
 import os
+from dotenv import load_dotenv
+
+# carrega variáveis do .env
+load_dotenv()
 
 # criando o app
 app = Flask(__name__)
@@ -16,3 +20,4 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'homepage'
 
 from fakerest import routes
+
