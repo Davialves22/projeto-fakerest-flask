@@ -340,6 +340,14 @@
         "documentation": {}
     },
     {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "*",
         "importPath": "fakerest.forms",
         "description": "fakerest.forms",
@@ -450,7 +458,7 @@
         "kind": 6,
         "importPath": "fakerest.forms",
         "description": "fakerest.forms",
-        "peekOfCode": "class FormLogin(FlaskForm):\n    email = StringField('Email', validators=[DataRequired(), Email()])\n    senha = PasswordField('Senha', validators=[DataRequired()])\n    botao_confirmacao = SubmitField('Fazer Login')\nclass FormCriarConta(FlaskForm):\n    email = StringField('Email', validators=[DataRequired(), Email()])\n    username = StringField('Username', validators=[DataRequired()])\n    senha = PasswordField('Senha', validators=[DataRequired(), length(6, 20)])\n    confirmacao_senha = PasswordField('Confirmar senha', validators=[DataRequired(), EqualTo('senha')])\n    botao_confirmacao = SubmitField('Criar conta')",
+        "peekOfCode": "class FormLogin(FlaskForm):\n    email = StringField('Email', validators=[DataRequired(), Email()])\n    senha = PasswordField('Senha', validators=[DataRequired()])\n    botao_confirmacao = SubmitField('Fazer Login')\n    #função para filtrar email\n    def validate_email(self, email):\n        usuario = Usuario.query.filter_by(email=email.data).first()\n        if not usuario:\n            raise ValidationError(\"Email não encontrado!, crie uma conta\")\nclass FormCriarConta(FlaskForm):",
         "detail": "fakerest.forms",
         "documentation": {}
     },
@@ -522,7 +530,7 @@
         "kind": 2,
         "importPath": "fakerest.routes",
         "description": "fakerest.routes",
-        "peekOfCode": "def perfil(id_usuario):  # vai exibir a página com os dados do usuario\n    if id_usuario == int(current_user.id):  # o usuario ta vendo o proprio perfil senao ta vendo o de outro usuario\n        form_foto = FormFoto()\n        if form_foto.validate_on_submit():\n            arquivo = form_foto.foto.data\n            nome_seguro = secure_filename(arquivo.filename)\n            # salvar o arquivo na pasta\n            caminho = caminho_projeto / app.config[app.config['UPLOAD_FOLDER'] / nome_seguro\n            arquivo.save(caminho)\n            # registrar o arquivo no banco",
+        "peekOfCode": "def perfil(id_usuario):  # vai exibir a página com os dados do usuario\n    if int(id_usuario) == int(current_user.id):  # o usuario ta vendo o proprio perfil senao ta vendo o de outro usuario\n        form_foto = FormFoto()\n        if form_foto.validate_on_submit():\n            arquivo = form_foto.foto.data\n            nome_seguro = secure_filename(arquivo.filename)\n            # salvar o arquivo na pasta\n            caminho = os.path.join(os.path.abspath(os.path.dirname(__file__)),  # o caminho onde esta o codigo escrito\n                                   app.config['UPLOAD_FOLDER'], nome_seguro)\n            arquivo.save(caminho)",
         "detail": "fakerest.routes",
         "documentation": {}
     },
@@ -531,7 +539,16 @@
         "kind": 2,
         "importPath": "fakerest.routes",
         "description": "fakerest.routes",
-        "peekOfCode": "def logout():\n    logout_user()\n    return redirect(url_for('homepage'))",
+        "peekOfCode": "def logout():\n    logout_user()\n    return redirect(url_for('homepage'))\n@app.route(\"/feed\")\n@login_required\ndef feed():\n    # Pega a página da query string, padrão é 1\n    page = request.args.get('page', 1, type=int)\n    per_page = 10  # quantidade de fotos por página\n    # Retorna um objeto Pagination",
+        "detail": "fakerest.routes",
+        "documentation": {}
+    },
+    {
+        "label": "feed",
+        "kind": 2,
+        "importPath": "fakerest.routes",
+        "description": "fakerest.routes",
+        "peekOfCode": "def feed():\n    # Pega a página da query string, padrão é 1\n    page = request.args.get('page', 1, type=int)\n    per_page = 10  # quantidade de fotos por página\n    # Retorna um objeto Pagination\n    fotos_pag = Foto.query.order_by(Foto.data_criacao.desc()).paginate(page=page, per_page=per_page)\n    return render_template('feed.html', fotos=fotos_pag)",
         "detail": "fakerest.routes",
         "documentation": {}
     }

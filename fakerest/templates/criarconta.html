@@ -46,7 +46,7 @@ Criar Conta - FakeRest
         {% if form.username.errors %}
         {%for erro in form.username.errors%}
         <p style="color:red">{{ erro }}</p>
-        {% enfor %}
+        {% endfor %}
         {% endif %}
         {{form.username(class="input") }}
     </div>
