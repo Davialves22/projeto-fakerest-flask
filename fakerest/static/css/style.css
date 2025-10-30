@@ -372,6 +372,59 @@ h1 {
   color: #e60023;
 }
 
+/* =================== MENU RESPONSIVO (DESKTOP / MOBILE) =================== */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.restante-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.link-nav {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Responsividade: ao atingir 768px, muda para menu hambúrguer */
+@media (max-width: 768px) {
+  .restante-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .restante-nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
 /* =================== ANIMAÇÕES =================== */
 @keyframes zoomIn {
   from { transform: scale(0.8); opacity: 0; }
